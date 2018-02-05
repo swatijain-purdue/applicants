@@ -1,0 +1,47 @@
+<%= form_with(model: applicant, local: true) do |form| %>
+  <% if applicant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+
+      <ul>
+      <% applicant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :applicant_first_name, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :applicant_last_name, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :applicant_email, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :applicant_phone, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode, id: :applicant_zipcode, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :referral_code %>
+    <%= form.text_field :referral_code, id: :applicant_referral_code, :required => false %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
